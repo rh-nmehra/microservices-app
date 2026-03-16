@@ -20,7 +20,7 @@ spec:
       containers:
         - name: phonebook-app
           resources:
-          image: quay.io/rh-ee-nmehra/web-server:v1
+          image: quay.io/rh-ee-nmehra/web-server:a
           ports:
             - containerPort: 80
           env:

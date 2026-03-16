@@ -12,5 +12,5 @@ spec:
     weight: 100
   port:
     # This must match the 'port' defined in your service
-    targetPort: 80
+    targetPort: 8080
 

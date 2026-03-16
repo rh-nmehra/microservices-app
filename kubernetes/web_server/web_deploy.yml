@@ -20,7 +20,7 @@ spec:
       containers:
         - name: phonebook-app
           resources:
-          image: devenes/python_web_server:2
+          image: quay.io/rh-ee-nmehra/web-server:v1
           ports:
             - containerPort: 80
           env:

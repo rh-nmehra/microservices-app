@@ -13,4 +13,5 @@ spec:
     weight: 100
   port:
     # This matches the 'port' defined in your Service (80)
-    targetPort: 8080
+    targetPort: http-web
+  wildcardPolicy: None

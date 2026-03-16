@@ -25,6 +25,6 @@ spec:
   http:
   - route:
     - destination:
-        host: phonebook-app-pod
+        host: phonebook-service
         port:
-          number: 80
+          number: 8080

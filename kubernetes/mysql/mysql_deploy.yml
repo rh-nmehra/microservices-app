@@ -19,6 +19,8 @@ spec:
         - image: mysql:5.7
           name: mysql
           imagePullPolicy: Always
+          args:
+            - "--ignore-db-dir=lost+found"
           env:
             - name: MYSQL_PASSWORD
               valueFrom:

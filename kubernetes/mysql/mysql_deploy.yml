@@ -14,6 +14,8 @@ spec:
       name: mysql-pod
       labels:
         name: mysql-pod
+      annotations:
+        sidecar.istio.io/inject: "true"
     spec: #https://kubernetes.io/docs/concepts/configuration/overview/
       containers:
         - image: mysql:5.7

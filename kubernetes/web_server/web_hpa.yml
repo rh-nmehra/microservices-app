@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: phonebook-hpa
-  namespace: phonebook-v1-ns # Ensure this matches your namespace
+  namespace: phonebook-v1
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

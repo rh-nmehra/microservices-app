@@ -9,7 +9,7 @@ spec:
   - hosts:
     - '*'
     port:
-      number: 80
+      number: 8080
       name: http-web
       protocol: HTTP
 ---
@@ -27,4 +27,4 @@ spec:
     - destination:
         host: phonebook-app-pod
         port:
-          number: 8080
+          number: 80

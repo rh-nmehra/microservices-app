@@ -13,8 +13,4 @@ spec:
     weight: 100
   port:
     # This matches the 'port' defined in your Service (80)
-    targetPort: 80
-  tls:
-    # Recommended: This enables SSL termination at the router
-    termination: edge
-    insecureEdgeTerminationPolicy: Allow
+    targetPort: 8080

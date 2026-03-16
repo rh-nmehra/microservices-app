@@ -1,0 +1,20 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: result-service-route
+  labels:
+    name: result-service
+spec:
+  # The public host will be auto-generated if you leave 'host' blank
+  # host: result-app.your-domain.com 
+  to:
+    kind: Service
+    name: result-service
+    weight: 100
+  port:
+    # This matches the 'port' defined in your Service (80)
+    targetPort: 80
+  tls:
+    # Recommended: This enables SSL termination at the router
+    termination: edge
+    insecureEdgeTerminationPolicy: Allow

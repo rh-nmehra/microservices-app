@@ -9,7 +9,7 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-      name: http
+      name: http-web
       #nodePort: 30001
   selector:
     name: phonebook-app-pod

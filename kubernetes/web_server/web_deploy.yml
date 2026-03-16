@@ -14,8 +14,8 @@ spec:
       name: phonebook-app-pod
       labels:
         name: phonebook-app-pod
-    annotations:
-      sidecar.istio.io/inject: "true"
+      annotations:
+        sidecar.istio.io/inject: "true"
     spec:
       containers:
         - name: phonebook-app

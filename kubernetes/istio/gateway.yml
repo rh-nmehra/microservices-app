@@ -10,7 +10,7 @@ spec:
     - '*'
     port:
       number: 80
-      name: http
+      name: http-web
       protocol: HTTP
 ---
 apiVersion: networking.istio.io/v1alpha3
@@ -25,6 +25,6 @@ spec:
   http:
   - route:
     - destination:
-        host: phonebook-aa-pod
+        host: phonebook-app-pod
         port:
           number: 8080

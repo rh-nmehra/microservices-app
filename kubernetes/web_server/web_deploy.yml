@@ -22,6 +22,13 @@ spec:
           resources:
           image: quay.io/rh-ee-nmehra/web-server:v1
           imagePullPolicy: Always
+          - resources:
+              limits:
+                cpu: '300'
+                memory: 1Gi
+              requests:
+                cpu: 10m
+                memory: 128Mi
           ports:
             - containerPort: 80
           env:

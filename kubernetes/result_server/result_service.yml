@@ -7,7 +7,8 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 80
+    - port: 8080
+      name: http-web
       targetPort: 80
       #nodePort: 30002
   selector:

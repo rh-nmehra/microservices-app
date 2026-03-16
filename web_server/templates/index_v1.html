@@ -6,35 +6,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Phonebook v1</title>
   <style>
-    body { max-width: 600px; margin: auto; font-family: sans-serif; background-color: #f9f9f9; }
-    .container { margin-top: 50px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    img { display: block; margin: 0 auto 30px; max-width: 200px; }
-    
-    /* TPS Dashboard Styles */
-    .dashboard { display: flex; justify-content: space-around; background: #333; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; }
-    .stat-value { font-size: 1.5em; font-weight: bold; color: #4caf50; }
-    .stat-label { font-size: 0.8em; text-transform: uppercase; opacity: 0.8; }
+    body {
+      max-width: 600px;
+      margin: auto;
+      /* Background changed to a solid, readable red */
+      background-color: #d32f2f; 
+      color: white; /* Base text color set to white */
+      font-family: sans-serif;
+    }
 
-    button { box-sizing: border-box; background-color: #4caf50; color: white; padding: 16px 20px; margin: 8px 0; border: none; cursor: pointer; width: 100%; border-radius: 4px; font-size: 1em; transition: 0.3s; }
-    button:hover { opacity: 0.8; background-color: #45a049; }
-    .sectionnote { color: #be1fa4; margin-top: 20px; }
+    div {
+      margin-top: 100px;
+      margin-bottom: 50px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      filter: drop-shadow(2px 4px 6px black); /* Helps image pop on red */
+    }
+
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 15px;
+      margin: 20px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+      color: #333;
+    }
+
+    button {
+      box-sizing: border-box;
+      background-color: #212121; /* Dark button for high contrast on red */
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 1;
+      background-color: #000000;
+    }
+
+    .warning {
+      color: #ffeb3b; /* Yellow warning text for visibility on red */
+    }
+
+    .sectionnote {
+      color: #ffffff;
+      border-bottom: 2px solid #ffeb3b; /* Accent line for section break */
+      padding-bottom: 10px;
+    }
+
+    .footnote {
+      color: #eeeeee;
+    }
+    
+    h1, h2 {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Prevents text from bleeding into background */
+    }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
-    <div><img src="https://clarusway.com/wp-content/uploads/2020/06/clarusway_logo.png" /></div>
+  <div><img src="phone-book.png" /></div>
 
-    <h1>Project: Phonebook App</h1>
-    <h2>Welcome to your Phonebook</h2>
-    
-    <h3 class="sectionnote">Operations:</h3>
+  <h1>Project : Phonebook Application</h1>
+  <h2>Welcome to your Phonebook Application </h2>
+  <h2 class="sectionnote">Please select operation:</h2>
 
-    <form action="/add"><button type="submit">Add Entry</button></form>
-    <form action="/update"><button type="submit">Update Entry</button></form>
-    <form action="/delete"><button type="submit">Delete Entry</button></form>
-  </div>
+  <form action="/add">
+    <button type="submit">Add</button>
+  </form>
+
+  <form action="/update">
+    <button type="submit">Update</button>
+  </form>
+
+  <form action="/delete">
+    <button type="submit">Delete</button>
+  </form>
 
 </body>
+
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phonebook Pro Demo</title>
+  <style>
+    body { max-width: 600px; margin: auto; font-family: sans-serif; background-color: #f9f9f9; }
+    .container { margin-top: 50px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    img { display: block; margin: 0 auto 30px; max-width: 200px; }
+    
+    /* TPS Dashboard Styles */
+    .dashboard { display: flex; justify-content: space-around; background: #333; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; }
+    .stat-value { font-size: 1.5em; font-weight: bold; color: #4caf50; }
+    .stat-label { font-size: 0.8em; text-transform: uppercase; opacity: 0.8; }
+
+    button { box-sizing: border-box; background-color: #4caf50; color: white; padding: 16px 20px; margin: 8px 0; border: none; cursor: pointer; width: 100%; border-radius: 4px; font-size: 1em; transition: 0.3s; }
+    button:hover { opacity: 0.8; background-color: #45a049; }
+    .sectionnote { color: #be1fa4; margin-top: 20px; }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div><img src="https://clarusway.com/wp-content/uploads/2020/06/clarusway_logo.png" /></div>
+
+    <div class="dashboard">
+      <div>
+        <div id="tps-count" class="stat-value">0.0</div>
+        <div class="stat-label">TPS (Live)</div>
+      </div>
+      <div>
+        <div id="db-status" class="stat-value" style="color: #ff9800;">Checking...</div>
+        <div class="stat-label">DB Connection</div>
+      </div>
+    </div>
+
+    <h1>Project: Phonebook App</h1>
+    <h2>Welcome to {{developer_name}}'s Phonebook</h2>
+    
+    <h3 class="sectionnote">Operations:</h3>
+
+    <form action="/add"><button type="submit">Add Entry</button></form>
+    <form action="/update"><button type="submit">Update Entry</button></form>
+    <form action="/delete"><button type="submit">Delete Entry</button></form>
+  </div>
+
+  <script>
+    // Logic to poll the backend for TPS and DB health
+    async function updateMetrics() {
+      try {
+        // Assuming your backend has a /stats or /metrics endpoint
+        const response = await fetch('/stats');
+        const data = await response.json();
+        
+        document.getElementById('tps-count').innerText = data.tps || "0.0";
+        document.getElementById('db-status').innerText = data.db_connected ? "ONLINE" : "OFFLINE";
+        document.getElementById('db-status').style.color = data.db_connected ? "#4caf50" : "#f44336";
+      } catch (err) {
+        console.log("Stats endpoint not reachable yet...");
+      }
+    }
+
+    // Refresh metrics every 1 second
+    setInterval(updateMetrics, 1000);
+  </script>
+
+</body>
+</html>

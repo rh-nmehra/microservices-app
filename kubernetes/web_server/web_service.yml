@@ -5,10 +5,11 @@ metadata:
   labels:
     name: phonebook-service
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
-    - port: 80
+    - port: 8080
       targetPort: 80
-      nodePort: 30001
+      name: http-web
+      #nodePort: 30001
   selector:
     name: phonebook-app-pod

@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: phonebook-route
+  labels:
+    name: phonebook-service
+spec:
+  # The cluster will automatically generate a host if you leave it blank
+  to:
+    kind: Service
+    name: phonebook-service
+    weight: 100
+  port:
+    # This must match the 'port' defined in your service
+    targetPort: http-web
+  wildcardPolicy: None
+

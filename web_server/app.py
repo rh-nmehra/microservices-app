@@ -160,7 +160,7 @@ def delete_record():
 
 @app.route('/', methods=['GET', 'POST'])
 def find_records():
-    return render_template('index_v1.html', show_result=False, developer_name='Devenes')
+    return render_template('index_v2.html', show_result=False, developer_name='Devenes')
 
 
 # Add a statement to run the Flask application which can be reached from any host on port 80.

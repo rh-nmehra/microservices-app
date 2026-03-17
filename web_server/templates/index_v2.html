@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phonebook v2</title>
+  <style>
+    body {
+      max-width: 600px;
+      margin: auto;
+      /* V2 Theme: Deep Professional Blue */
+      background-color: #1a237e; 
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: background-color 0.5s ease;
+    }
+
+    .v2-badge {
+      background-color: #00e676; /* Bright Green Badge */
+      color: #1a237e;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    div.logo-container {
+      margin-top: 80px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.4));
+      width: 120px; /* Standardized size */
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    button {
+      box-sizing: border-box;
+      /* V2 Style: Rounded, gradient buttons */
+      background: linear-gradient(45deg, #0d47a1, #1976d2);
+      color: white;
+      padding: 16px 20px;
+      margin: 10px 0;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      background: linear-gradient(45deg, #1565c0, #2196f3);
+    }
+
+    .sectionnote {
+      color: #bbdefb;
+      border-bottom: 2px solid #00e676; /* Green accent to match badge */
+      padding-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    h1 {
+      margin-top: 10px;
+      font-size: 2.2rem;
+      letter-spacing: -1px;
+    }
+
+    h2 {
+      font-weight: 300;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="logo-container">
+    <img src="phone-book.png" alt="Phonebook Logo" />
+  </div>
+
+  <div class="card">
+    <span class="v2-badge">v2.0 CANARY RELEASE</span>
+    <h1>Phonebook Application</h1>
+    <h2>Modern User Interface</h2>
+    
+    <h2 class="sectionnote">Available Operations:</h2>
+
+    <form action="/add">
+      <button type="submit">➕ Add New Contact</button>
+    </form>
+
+    <form action="/update">
+      <button type="submit">🔄 Update Existing</button>
+    </form>
+
+    <form action="/delete">
+      <button type="submit">🗑️ Remove Contact</button>
+    </form>
+  </div>
+
+  <p style="text-align: center; margin-top: 20px; opacity: 0.6; font-size: 0.8rem;">
+    Running on OpenShift Container Platform
+  </p>
+
+</body>
+
+</html>

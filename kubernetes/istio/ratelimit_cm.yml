@@ -4,7 +4,7 @@ metadata:
   name: ratelimit-config
 data:
   config.yaml: |
-    domain: product
+    domain: phonebook
     descriptors:
       - key: PATH
         rate_limit:

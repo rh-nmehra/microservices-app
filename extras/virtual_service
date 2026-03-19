@@ -1,0 +1,27 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ingressgateway
+  namespace: phonebook-v1
+spec:
+  gateways:
+  - ingressgateway
+  hosts:
+  - '*'
+  http:
+  - fault:
+      abort:
+        httpStatus: 404
+        percentage:
+          value: 1
+    route:
+    - destination:
+        host: phonebook-service
+        port:
+          number: 8080
+      weight: 95
+    - destination:
+        host: phonebook-service.phonebook-v2.svc.primary-mesh-exports.local
+        port:
+          number: 8080
+      weight: 5

@@ -13,7 +13,7 @@ spec:
       abort:
         httpStatus: 404
         percentage:
-          value: 1
+          value: 0
     route:
     - destination:
         host: phonebook-service.phonebook-v1.svc.cluster.local

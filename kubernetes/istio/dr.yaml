@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: phonebook-service
+  namespace: phonebook-v1
+spec:
+  host: phonebook-service
+  trafficPolicy:
+    connectionPool:
+      http:
+        http1MaxPendingRequests: 10
+        maxRequestsPerConnection: 1
+    outlierDetection:
+      baseEjectionTime: 1m
+      consecutiveErrors: 1
+      interval: 1s
+      maxEjectionPercent: 100

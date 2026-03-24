@@ -9,12 +9,7 @@ spec:
   hosts:
   - '*'
   http:
-  - fault:
-      abort:
-        httpStatus: 404
-        percentage:
-          value: 0
-    route:
+  - route:
     - destination:
         host: phonebook-service.phonebook-v1.svc.cluster.local
       weight: 90

@@ -11,7 +11,7 @@ spec:
   http:
   - fault:
       abort:
-        httpStatus: 404
+        httpStatus: 501
         percentage:
           value: 10
     route:

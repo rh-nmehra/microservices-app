@@ -25,6 +25,8 @@ spec:
   http:
   - route:
     - destination:
-        host: phonebook-service
-        port:
-          number: 8080
+        host: phonebook-service.phonebook-v1.svc.cluster.local
+      weight: 90
+    - destination:
+         host: phonebook-service-v2.phonebook-v1.svc.dr-imports.local
+      weight: 10

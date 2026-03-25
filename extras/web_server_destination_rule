@@ -5,13 +5,20 @@ metadata:
   namespace: phonebook-v1
 spec:
   host: phonebook-service
-  trafficPolicy:
-    connectionPool:
-      http:
-        http1MaxPendingRequests: 10
-        maxRequestsPerConnection: 1
-    outlierDetection:
-      baseEjectionTime: 1m
-      consecutive5xxErrors: 1
-      interval: 1s
-      maxEjectionPercent: 100
+  subsets:
+  - name: v1
+    labels:
+      version: '1.0'
+    trafficPolicy:
+      connectionPool:
+        http:
+          http1MaxPendingRequests: 10
+          maxRequestsPerConnection: 1
+      outlierDetection:
+        baseEjectionTime: 1m
+        consecutive5xxErrors: 1
+        interval: 1s
+        maxEjectionPercent: 100      
+  - name: v2
+    labels:
+      version: '2.0'

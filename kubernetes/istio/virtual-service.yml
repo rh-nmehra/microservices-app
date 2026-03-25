@@ -8,17 +8,8 @@ spec:
   gateways:
   - ingressgateway
   http:
-  - fault:
-      abort:
-        httpStatus: 501
-        percentage:
-          value: 10
-    route:
+  - route:
     - destination:
         host: phonebook-service
         subset: v1
-      weight: 50
-    - destination:
-         host: phonebook-service
-         subset: v2
-      weight: 50
+      weight: 100

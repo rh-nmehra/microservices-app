@@ -30,8 +30,10 @@ spec:
           value: 10
     route:
     - destination:
-        host: phonebook-service.phonebook-v1.svc.cluster.local
+        host: phonebook-service
+        subset: v1
       weight: 50
     - destination:
-         host: phonebook-service-v2.phonebook-v1.svc.dr-imports.local
+         host: phonebook-service
+         subset: v2
       weight: 50

@@ -8,8 +8,13 @@ spec:
   gateways:
   - ingressgateway
   http:
+  http:
   - route:
     - destination:
         host: phonebook-service
         subset: v1
-      weight: 100
+      weight: 50
+    - destination:
+         host: phonebook-service
+         subset: v2
+      weight: 50

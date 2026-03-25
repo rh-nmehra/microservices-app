@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phonebook-app-deploy-v2
+  labels:
+    app: phonebook-app-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: phonebook-app-pod
+  template:
+    metadata:
+      name: phonebook-app-pod
+      labels:
+        name: phonebook-app-pod
+        version: "2.0"
+      annotations:
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+        - name: phonebook-app-v2
+          resources:
+          image: quay.io/rh-ee-nmehra/web-server:v2
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: '300'
+              memory: 1Gi
+            requests:
+              cpu: 10m
+              memory: 128Mi
+          ports:
+            - containerPort: 80
+          env:
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: mysql-admin-password
+          envFrom:
+            - configMapRef:
+                name: servers-configmap

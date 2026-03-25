@@ -13,8 +13,8 @@ spec:
     - destination:
         host: phonebook-service
         subset: v1
-      weight: 50
+      weight: 90
     - destination:
          host: phonebook-service
          subset: v2
-      weight: 50
+      weight: 10

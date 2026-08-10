@@ -4,5 +4,5 @@ FROM nginx:alpine
 # Overwrite the default Nginx index.html with our custom Hello World message
 RUN echo '<!DOCTYPE html><html><body style="font-family: sans-serif; text-align: center; margin-top: 20%;"><h1>Hello, World!</h1><p>Running from inside a Docker container.</p></body></html>' > /usr/share/nginx/html/index.html
 
-# Expose port 80 to the outside world
-EXPOSE 80
+# Expose port 8080 to the outside world
+EXPOSE 8080

@@ -14,12 +14,15 @@ spec:
       name: mysql-pod
       labels:
         name: mysql-pod
+      annotations:
+        sidecar.istio.io/inject: "true"
     spec: #https://kubernetes.io/docs/concepts/configuration/overview/
       containers:
         - image: mysql:5.7
-          resources:
           name: mysql
           imagePullPolicy: Always
+          args:
+            - "--ignore-db-dir=lost+found"
           env:
             - name: MYSQL_PASSWORD
               valueFrom:
@@ -31,9 +34,10 @@ spec:
                 secretKeyRef:
                   name: mysql-secret
                   key: mysql-root-password
-          envFrom:
-            - configMapRef:
-                name: database-configmap
+            - name: MYSQL_DATABASE
+              value: "phonebook"
+            - name: MYSQL_USER
+              value: "openshift"
           ports:
             - containerPort: 3306
           volumeMounts:

@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ingressgateway
+  namespace: phonebook-v1
+spec:
+  gateways:
+  - ingressgateway
+  hosts:
+  - '*'
+  http:
+  - route:
+    - destination:
+        host: phonebook-service.phonebook-v1.svc.cluster.local
+      weight: 90
+    - destination:
+         host: phonebook-service-v2.phonebook-v1.svc.dr-imports.local
+      weight: 10

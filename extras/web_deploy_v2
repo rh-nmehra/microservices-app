@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: phonebook-microservice
+  name: phonebook-app-deploy-v2
   labels:
     app: phonebook-app-deploy
 spec:
@@ -14,14 +14,14 @@ spec:
       name: phonebook-app-pod
       labels:
         name: phonebook-app-pod
-        version: "1.0"
+        version: "2.0"
       annotations:
         sidecar.istio.io/inject: "true"
     spec:
       containers:
-        - name: phonebook-microservice
+        - name: phonebook-app-v2
           resources:
-          image: quay.io/rh-ee-nmehra/web-server:v1
+          image: quay.io/rh-ee-nmehra/web-server:v2
           imagePullPolicy: Always
           resources:
             limits:

@@ -1,0 +1,37 @@
+apiVersion: federation.maistra.io/v1
+kind: ServiceMeshPeer
+metadata:
+  name: dr-mesh
+  namespace: primary-site
+spec:
+  gateways:
+    egress:
+      name: dr-mesh-egress
+    ingress:
+      name: dr-mesh-ingress
+  remote:
+    addresses:
+      - primary-mesh-ingress.dr-site.svc.cluster.local
+    discoveryPort: 8188
+    servicePort: 15443
+  security:
+    certificateChain:
+      kind: ConfigMap
+      name: dr-mesh-ca-root-cert
+    clientID: dr-mesh.local/ns/dr-site/sa/primary-mesh-egress-service-account
+    trustDomain: dr-mesh.local
+status:
+  discoveryStatus:
+    active:
+      - pod: istiod-primary-6f6dcb95c9-vdtgv
+        remotes:
+          - connected: true
+            lastConnected: '2026-03-23T06:13:57Z'
+            lastFullSync: '2026-03-23T06:20:10Z'
+            source: 10.130.0.37
+        watch:
+          connected: true
+          lastConnected: '2026-03-23T06:14:40Z'
+          lastDisconnect: '2026-03-23T06:14:39Z'
+          lastDisconnectStatus: 200 OK
+          lastFullSync: '2026-03-23T06:19:56Z'

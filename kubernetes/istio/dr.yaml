@@ -1,0 +1,11 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: phonebook-service
+  namespace: phonebook-v1
+spec:
+  host: phonebook-service
+  subsets:
+  - name: v1
+    labels:
+      version: '1.0'

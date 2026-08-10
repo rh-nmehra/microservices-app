@@ -4,11 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kubernetes Application</title>
+  <title>Phonebook v1</title>
   <style>
     body {
       max-width: 600px;
       margin: auto;
+      /* Background changed to a solid, readable red */
+      background-color: #d32f2f; 
+      color: white; /* Base text color set to white */
+      font-family: sans-serif;
     }
 
     div {
@@ -22,6 +26,7 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
+      filter: drop-shadow(2px 4px 6px black); /* Helps image pop on red */
     }
 
     input {
@@ -32,11 +37,12 @@
       display: inline-block;
       border: none;
       background: #f1f1f1;
+      color: #333;
     }
 
     button {
       box-sizing: border-box;
-      background-color: #4caf50;
+      background-color: #212121; /* Dark button for high contrast on red */
       color: white;
       padding: 16px 20px;
       margin: 8px 0;
@@ -44,28 +50,40 @@
       cursor: pointer;
       width: 100%;
       opacity: 0.9;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 1;
+      background-color: #000000;
     }
 
     .warning {
-      color: red;
+      color: #ffeb3b; /* Yellow warning text for visibility on red */
     }
 
     .sectionnote {
-      color: rgba(190, 31, 164, 0.89);
+      color: #ffffff;
+      border-bottom: 2px solid #ffeb3b; /* Accent line for section break */
+      padding-bottom: 10px;
     }
 
     .footnote {
-      color: rgba(0, 0, 255, 0.712);
+      color: #eeeeee;
+    }
+    
+    h1, h2 {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Prevents text from bleeding into background */
     }
   </style>
 </head>
 
 <body>
 
-  <div><img src="https://clarusway.com/wp-content/uploads/2020/06/clarusway_logo.png" /></div>
+  <div><img src="phone-book.png" /></div>
 
   <h1>Project : Phonebook Application</h1>
-  <h2>Welcome to {{developer_name}}'s Phonebook Application </h2>
+  <h2>Welcome to your Phonebook Application </h2>
   <h2 class="sectionnote">Please select operation:</h2>
 
   <form action="/add">

@@ -1,8 +1,8 @@
-# Use the official, lightweight Nginx image based on Alpine Linux
-FROM nginx:alpine
+# 1. Swap to the unprivileged Nginx image
+FROM nginxinc/nginx-unprivileged:alpine
 
-# Overwrite the default Nginx index.html with our custom Hello World message
-RUN echo '<!DOCTYPE html><html><body style="font-family: sans-serif; text-align: center; margin-top: 20%;"><h1>Hello, World!</h1><p>Running from inside a Docker container.</p></body></html>' > /usr/share/nginx/html/index.html
+# 2. Overwrite the default HTML (this image already grants the right permissions here)
+RUN echo '<!DOCTYPE html><html><body style="font-family: sans-serif; text-align: center; margin-top: 20%;"><h1>Hello, OpenShift!</h1><p>Running securely without root privileges.</p></body></html>' > /usr/share/nginx/html/index.html
 
-# Expose port 8080 to the outside world
+# 3. Expose port 8080 (the unprivileged image defaults to 8080 instead of 80)
 EXPOSE 8080

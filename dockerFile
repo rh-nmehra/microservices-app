@@ -1,8 +1,12 @@
-# 1. Swap to the unprivileged Nginx image
 FROM nginxinc/nginx-unprivileged:alpine
 
-# 2. Overwrite the default HTML (this image already grants the right permissions here)
+# 1. Temporarily switch to root to bypass build-time permissions
+USER root
+
+# 2. Overwrite the default HTML
 RUN echo '<!DOCTYPE html><html><body style="font-family: sans-serif; text-align: center; margin-top: 20%;"><h1>Hello, OpenShift!</h1><p>Running securely without root privileges.</p></body></html>' > /usr/share/nginx/html/index.html
 
-# 3. Expose port 8080 (the unprivileged image defaults to 8080 instead of 80)
+# 3. Switch back to the unprivileged user (UID 101) for secure runtime
+USER 101
+
 EXPOSE 8080
